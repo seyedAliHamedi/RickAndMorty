@@ -35,7 +35,6 @@
 		CB5310C029DA2F2100E3EA5E /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5310BF29DA2F2100E3EA5E /* Extentions.swift */; };
 		CB5310C429DA32FB00E3EA5E /* RMCharecterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5310C329DA32FB00E3EA5E /* RMCharecterCollectionViewCell.swift */; };
 		CB5310C629DA339E00E3EA5E /* RMCharecterCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5310C529DA339E00E3EA5E /* RMCharecterCollectionViewCellViewModel.swift */; };
-		CB5310C929DA34DD00E3EA5E /* RMCharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5310C829DA34DD00E3EA5E /* RMCharacterListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +68,6 @@
 		CB5310BF29DA2F2100E3EA5E /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		CB5310C329DA32FB00E3EA5E /* RMCharecterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharecterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB5310C529DA339E00E3EA5E /* RMCharecterCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharecterCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
-		CB5310C829DA34DD00E3EA5E /* RMCharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				CB5310C729DA34A600E3EA5E /* Core */,
-				CB5310C829DA34DD00E3EA5E /* RMCharacterListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 				CB5310C429DA32FB00E3EA5E /* RMCharecterCollectionViewCell.swift in Sources */,
 				CB5310C629DA339E00E3EA5E /* RMCharecterCollectionViewCellViewModel.swift in Sources */,
 				CB5310BE29DA2C7C00E3EA5E /* RMCharacterListView.swift in Sources */,
-				CB5310C929DA34DD00E3EA5E /* RMCharacterListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

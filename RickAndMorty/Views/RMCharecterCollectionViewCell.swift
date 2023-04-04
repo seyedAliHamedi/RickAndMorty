@@ -9,7 +9,7 @@ import UIKit
 
 /// Single cell for character in CharacterListView
 final class RMCharecterCollectionViewCell: UICollectionViewCell {
-   static let cellIdentifier = "RMCharecterCollectionViewCell"
+    static let cellIdentifier = "RMCharecterCollectionViewCell"
     
     // MARK: - UI components
     
@@ -17,7 +17,7 @@ final class RMCharecterCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -48,6 +48,7 @@ final class RMCharecterCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubviews(imageView,nameLabel,infoLabel)
         addConstraints()
+        setUpShadowLayer()
     }
     
     required init?(coder: NSCoder) {
@@ -75,7 +76,17 @@ final class RMCharecterCollectionViewCell: UICollectionViewCell {
             
         ])
     }
-
+    
+    func setUpShadowLayer(){
+        contentView.layer.cornerRadius = 4
+        contentView.layer.shadowColor = UIColor.label.cgColor
+        contentView.layer.shadowOpacity = 0.4
+        contentView.layer.shadowOffset = CGSize(width: -4, height: 4)
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setUpShadowLayer()
+    }
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
@@ -89,7 +100,7 @@ final class RMCharecterCollectionViewCell: UICollectionViewCell {
         infoLabel.text = viewModel.characterInfoText
         infoLabel.numberOfLines = 2
         viewModel.fetchImage { [weak self] result in
-
+            
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {

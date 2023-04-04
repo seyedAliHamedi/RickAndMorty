@@ -9,9 +9,8 @@ import UIKit
 
 /// View that handles showing list of characters , loader and etc...
 class RMCharacterListView: UIView {
- 
+    
     private let viewModel = RMCharacterListViewModel()
-    private let viewController = RMCharacterListViewController()
     // MARK: - UI components
     
     private let spinner : UIActivityIndicatorView = {
@@ -53,8 +52,10 @@ class RMCharacterListView: UIView {
         addSubviews(collectionView,spinner)
         addConstraints()
         spinner.startAnimating()
-//        viewModel.fetchAllCharaters()
+        viewModel.fetchAllCharaters()
+        viewModel.delegate = self
         setupCollectionView()
+        
     }
     
     private func addConstraints(){
@@ -71,18 +72,22 @@ class RMCharacterListView: UIView {
     }
     
     private func setupCollectionView(){
-        collectionView.delegate = viewController
-        collectionView.dataSource = viewController
+        collectionView.delegate = viewModel
+        collectionView.dataSource = viewModel
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
-            self.spinner.stopAnimating()
-            self.collectionView.isHidden = false
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-        })
+        
     }
     
     
     
+}
+extension RMCharacterListView :  RMCharacterListViewModelDelegate {
+    func didLoadInitialCharacters() {
+        self.spinner.stopAnimating()
+        self.collectionView.isHidden = false
+        collectionView.reloadData()
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
+    }
 }
